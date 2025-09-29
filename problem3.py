@@ -16,7 +16,7 @@ def get_numbers_from_user():
     while True:
         val = (input("Enter a number : "))
 
-        if val.lower() == "done":  
+        if val.lower() == "done":
             break
         try:
             number = float(val)
@@ -61,8 +61,8 @@ def analyze_numbers(numbers):
     analysis["average"] = sum(numbers)/len(numbers)
     analysis["minimum"] = min(numbers)
     analysis["maximum"] = max(numbers)
-    analysis["even count"] = even_count
-    analysis["odd count"] = odd_count
+    analysis["even_count"] = even_count
+    analysis["odd_count"] = odd_count
 
     return analysis
 
@@ -80,7 +80,7 @@ def display_analysis(analysis):
     print("\nAnalysis Results:")
     print("-" * 20)
     for key, value in analysis.items():
-        print(key + " : " + str(value))
+        print(key," : ",str(value))
 
     # TODO: Display all analysis results in a nice format
     # Example:
@@ -112,3 +112,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
