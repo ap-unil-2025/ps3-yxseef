@@ -14,12 +14,15 @@ def get_numbers_from_user():
     numbers = []
 
     while True:
-        # TODO: Get input from user
-        # TODO: Check if user typed 'done'
-        # TODO: Try to convert to float and add to list
-        # TODO: Handle invalid input gracefully
-        pass
+        val = (input("Enter a number : "))
 
+        if val.lower() == "done":  
+            break
+        try:
+            number = float(val)
+            numbers.append(number)
+        except ValueError:
+            print("Try again")
     return numbers
 
 
@@ -43,15 +46,23 @@ def analyze_numbers(numbers):
     if not numbers:
         return None
 
+    even_count = 0
+    odd_count = 0
+    for n in numbers:
+        if n % 2 == 0:
+            even_count += 1
+        else:
+            odd_count += 1
+
     analysis = {}
 
-    # TODO: Calculate count
-    # TODO: Calculate sum
-    # TODO: Calculate average
-    # TODO: Find minimum
-    # TODO: Find maximum
-    # TODO: Count even numbers (hint: use modulo operator)
-    # TODO: Count odd numbers
+    analysis["count"] = len(numbers)
+    analysis["sum"] = sum(numbers)
+    analysis["average"] = sum(numbers)/len(numbers)
+    analysis["minimum"] = min(numbers)
+    analysis["maximum"] = max(numbers)
+    analysis["even count"] = even_count
+    analysis["odd count"] = odd_count
 
     return analysis
 
@@ -68,6 +79,8 @@ def display_analysis(analysis):
 
     print("\nAnalysis Results:")
     print("-" * 20)
+    for key, value in analysis.items():
+        print(key + " : " + str(value))
 
     # TODO: Display all analysis results in a nice format
     # Example:
@@ -75,7 +88,6 @@ def display_analysis(analysis):
     # Sum: 25
     # Average: 5.00
     # etc.
-    pass
 
 
 def main():
